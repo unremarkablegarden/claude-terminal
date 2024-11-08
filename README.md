@@ -30,12 +30,12 @@ Node.js based CLI to talk to Claude.
 > node chat.js  
 ```
   
-Nice step by step wizard for config.  
-You can set system prompt, temp, etc. 
-You can save a context/conversation as JSON.  
-Keeps a log of all your system prompts.  
-Shows you the current input/output tokens per message and for the session.  
-Calculates the price based on model for tokens spent.  
-Keeps a JSON log of all your tokens spent and costs.  
+🧙🏻‍♂️ Nice step by step wizard for config.  
+🛠️ You can set system prompt, temp, etc. 
+💾 You can save a context/conversation as JSON.  
+📃 Keeps a log of all your system prompts.  
+🧮 Shows you the current input/output tokens per message and for the session.  
+💸 Calculates the price based on model for tokens spent.  
+📊 Keeps a JSON log of all your tokens spent and costs.  
   
 Recommend you run it in https://github.com/Swordfish90/cool-retro-term 😎
