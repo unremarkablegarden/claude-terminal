@@ -451,6 +451,7 @@ class ChatApp {
                                 console.log(`Model: ${this.config.model}`);
                                 console.log(`System Prompt: ${this.config.systemPrompt}`);
                                 console.log(`Max History (messages): ${this.config.maxHistory}`);
+                                console.log(`Temperature: ${this.config.temperature}`);
                                 console.log('\nTo change these settings, use the /config command.\n');
                                 await this.promptUser();
                                 return;
