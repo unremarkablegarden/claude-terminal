@@ -33,6 +33,9 @@ Any other input will be sent to Claude as a message.
   
 Node.js based CLI to talk to Claude.  
   
+→ npm i  
+→ node chat.js  
+  
 Let's you set system prompt, temp, etc. 
 Let's you save a context/conversation as JSON.  
 Keeps a log of all your system prompts.  
