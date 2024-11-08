@@ -30,6 +30,7 @@ Node.js based CLI to talk to Claude.
 > node chat.js  
 ```
   
+Nice step by step wizard for config.  
 You can set system prompt, temp, etc. 
 You can save a context/conversation as JSON.  
 Keeps a log of all your system prompts.  
