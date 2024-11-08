@@ -14,22 +14,14 @@ Available commands:
 /exit   - Exit the chat application  
   
 Any other input will be sent to Claude as a message.  
-  
-/show  
-    Current configuration:  
-        Name: ${this.config.userName}  
-        Model: ${this.config.model}  
-        System Prompt: ${this.config.systemPrompt}  
-        Max History (messages): ${this.config.maxHistory}  
-  
+    
 /config  
-    What would you like to configure?  
-        Name  
-        API Key  
-        Max history  
-        Model  
-        System Prompt  
-        Temperature  
+ - Name  
+ - API Key  
+ - Max history  
+ - Model  
+ - System Prompt  
+ - Temperature  
   
 Node.js based CLI to talk to Claude.  
   
