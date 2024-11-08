@@ -497,15 +497,22 @@ class ChatApp {
                                 
                             case '/size':
                                 try {
-                                    const response = await this.countTokens(this.config.systemPrompt, this.messages);
-                                    const input = response.input_tokens;
-                                    const modelPrice = MODELS.find(m => m.value === this.config.model).priceInput;
+                                    // const response = await this.countTokens(this.config.systemPrompt, this.messages);
+                                    // const input = response.input_tokens;
+                                    // const output = response.output_tokens;
+                                    // const tokens = input + output;
+                                    // const tokensK = (tokens/1000).toFixed(1);
+                                    // const tokensPrice = ((input * inputPrice) + (output * outputPrice));
+                                    const inputPrice = MODELS.find(m => m.value === this.config.model).priceInput;
+                                    const outputPrice = MODELS.find(m => m.value === this.config.model).priceOutput;
+                                    
+                                    const totalTokensK = ((TOTAL_INPUT_TOKENS + TOTAL_OUTPUT_TOKENS)/1000).toFixed(1);
+                                    const totalTokensPrice = ((TOTAL_INPUT_TOKENS * inputPrice) + (TOTAL_OUTPUT_TOKENS * outputPrice));
+                                    
+                                    console.log(` ${totalTokensK}k session $${totalTokensPrice.toFixed(3)}`);
                                     console.log();
-                                    console.log(`Context size:      ${input} tokens`);
-                                    console.log(`Context price:     $${(input * modelPrice).toFixed(5)}`);
-                                    console.log(`Session tokens:    ${TOTAL_TOKENS}`);
-                                    console.log(`Session price:     $${(TOTAL_TOKENS * modelPrice).toFixed(5)}`);
-                                    console.log();
+                                    
+                                    
                                 } catch (error) {
                                     console.error('Error getting context size:', error);
                                 }
