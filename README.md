@@ -31,6 +31,7 @@ Node.js based CLI to talk to Claude.
 ```
   
 🧙🏻‍♂️  Nice step by step wizard for config.  
+🖼️  Formats the messages in a sexy way in your terminal.  
 🛠️  You can set system prompt, temp, etc. 
 💾  You can save a context/conversation as JSON.  
 📃  Keeps a log of all your system prompts.  
