@@ -1,10 +1,11 @@
 # Claude Terminal
- ⠀⠀⠀⠀⠀⢠⣴⣶⣶⣶⣶⣶⣦⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n     ⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀\n     ⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠛⠿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀\n     ⠀⢀⣾⣿⣿⣿⣿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣷⡄⠀⠀⠀⠀\n     ⢠⣿⣿⣿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⣿⡄⠀⠀⠀\n     ⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⡄⠀⠀\n     ⣿⣿⠇⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⢹⣿⣿⣷⠀⠀\n     ⣿⣿⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⢸⣿⣿⣿⡆⠀\n     ⣿⣿⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⢸⣿⣿⣿⡇⠀\n     ⢹⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⠀⠀\n     ⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀\n     ⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠀⠀\n  \
+
+https://raw.githubusercontent.com/unremarkablegarden/claude-terminal/refs/heads/main/claude-terminal.jpg
 
 Available commands:
 
-/help   - Show this help message
-/save   - Save chat history to a file
+/help   - Show this help message  
+/save   - Save chat history to a file  
 /load   - Load chat history from a file
 /size   - Check context size and message price
 /config - Configuration
