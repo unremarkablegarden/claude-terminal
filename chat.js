@@ -9,9 +9,21 @@ const fs = require('fs/promises');
 const path = require('path');
 const Anthropic = require('@anthropic-ai/sdk');
 const inquirer = require('inquirer');
-
 const Spinner = require('cli-spinner').Spinner;
 
+const CONFIG_FILE = path.join(__dirname, 'chat_config.json');
+const HISTORY_FILE = path.join(__dirname, 'chat_history.json');
+const SYSTEM_PROMPTS_FILE = path.join(__dirname, 'system_prompts.json');
+const TOKENS_LOG_FILE = path.join(__dirname, 'tokens_log.json');
+const MAX_TOKENS = 1024*3;
+const MAX_WIDTH = 100;
+const LAYOUT_MARGIN = 20;
+const SHOW_NAMES = false;
+
+let TOTAL_INPUT_TOKENS = 0;
+let TOTAL_OUTPUT_TOKENS = 0;
+
+  
 const spinner = new Spinner({
     text: '%s ',
     stream: process.stderr,
@@ -21,16 +33,7 @@ const spinner = new Spinner({
     }
 });
 spinner.setSpinnerString(7);
-
-const CONFIG_FILE = path.join(__dirname, 'chat_config.json');
-const HISTORY_FILE = path.join(__dirname, 'chat_history.json');
-const SYSTEM_PROMPTS_FILE = path.join(__dirname, 'system_prompts.json');
-const TOKENS_LOG_FILE = path.join(__dirname, 'tokens_log.json');
-const MAX_TOKENS = 1024*3;
-const MAX_WIDTH = 100;
-let TOTAL_INPUT_TOKENS = 0;
-let TOTAL_OUTPUT_TOKENS = 0;
-
+  
 const MODELS = [
     { 
         name: 'Claude 3 Opus ($15/M + $75/M)', 
@@ -355,11 +358,16 @@ class ChatApp {
     
     drawBoxedMessage(role, message) {
         const screenWidth = process.stdout.columns-4;
-        const boxWidth = MAX_WIDTH-4;
+        const boxWidth = MAX_WIDTH;
         const screenPadding = Math.floor((screenWidth - boxWidth) / 2);
-        const margin = 20;
+        const margin = LAYOUT_MARGIN;
         
-        const topLine = `╭── ${role} ${'─'.repeat(boxWidth - role.length - 5 - margin)}─╮`;
+        let topLine;
+        if (SHOW_NAMES) {
+            topLine = `╭── ${role} ${'─'.repeat(boxWidth - role.length - 5 - margin)}─╮`;
+        } else {
+            topLine = `╭──${'─'.repeat(boxWidth - 3 - margin)}─╮`;
+        }
         const messageLines = message.split('\n').map(line => {
             const words = line.split(' ');
             let currentLine = '';
