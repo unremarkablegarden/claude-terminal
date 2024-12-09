@@ -16,7 +16,7 @@ const HISTORY_FILE = path.join(__dirname, 'chat_history.json');
 const SYSTEM_PROMPTS_FILE = path.join(__dirname, 'system_prompts.json');
 const TOKENS_LOG_FILE = path.join(__dirname, 'tokens_log.json');
 const MAX_TOKENS = 1024*3;
-const MAX_WIDTH = 100;
+// const MAX_WIDTH = 100;
 const LAYOUT_MARGIN = 20;
 const SHOW_NAMES = false;
 
@@ -358,15 +358,16 @@ class ChatApp {
     
     drawBoxedMessage(role, message) {
         const screenWidth = process.stdout.columns-4;
-        const boxWidth = MAX_WIDTH;
-        const screenPadding = Math.floor((screenWidth - boxWidth) / 2);
+        // const boxWidth = MAX_WIDTH > screenWidth ? screenWidth : MAX_WIDTH;
+        const boxWidth = Math.floor(screenWidth * 0.9);
+        const screenPadding = Math.floor((screenWidth - boxWidth) / 2) > 0 ? Math.floor((screenWidth - boxWidth) / 2) : 0;
         const margin = LAYOUT_MARGIN;
         
         let topLine;
         if (SHOW_NAMES) {
             topLine = `╭── ${role} ${'─'.repeat(boxWidth - role.length - 5 - margin)}─╮`;
         } else {
-            topLine = `╭──${'─'.repeat(boxWidth - 3 - margin)}─╮`;
+            topLine = `╭${'─'.repeat(boxWidth - margin)}╮`;
         }
         const messageLines = message.split('\n').map(line => {
             const words = line.split(' ');
@@ -386,6 +387,7 @@ class ChatApp {
             return lines;
         }).flat();
         
+        // const bottomLine = `╰${'─'.repeat(boxWidth - margin)}╯`;
         const bottomLine = `╰${'─'.repeat(boxWidth - margin)}╯`;
         const marginSpaces = ' '.repeat(margin);
         const paddingSpaces = ' '.repeat(screenPadding);
@@ -559,6 +561,7 @@ class ChatApp {
                             messages: this.messagesTrimmed ? this.messagesTrimmed : this.messages,
                         });
                         spinner.stop();
+                        console.log('\x1b[2K');
                         
                         const assistantMessage = response.content[0].text;
                         const inputTokens = response.usage.input_tokens;

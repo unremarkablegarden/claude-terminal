@@ -5,6 +5,7 @@ old/
 chats/
 chat_config.json
 chat_history.json
+chat_history.json.*
 package-lock.json
 system_prompts.json
 tokens_log.json
